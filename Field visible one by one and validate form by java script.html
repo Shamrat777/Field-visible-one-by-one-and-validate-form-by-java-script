@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--Author/: F.M. Javed Mehedi Shamrat-->
+<html>
+<head>
+<script>
+
+function validate(){
+var a= document.getElementById("fname").value;
+var c= document.getElementById("lname").value;
+var d= document.getElementById("deptname").value;
+var f= document.getElementById("sid").value;
+var e= document.getElementById("credit").value;
+var b=/^[A-Za-z]+$/;
+var b1=/^[0-9]+$/;
+if(a.match(b)&& c.match(b))
+{
+document.getElementById("deptname").style.visibility = "visible";
+if(d.match("swe")){
+document.getElementById("sid").style.visibility = "visible";
+if(f.match(b1)){
+document.getElementById("credit").style.visibility = "visible";
+if(e.match(b1) && e>=12){
+alert("Congratulations !!! Students are eligible to go to the tour.");
+}
+else{
+alert("credit required");
+}
+}
+else{
+alert("student id required");
+}
+}
+else{
+alert("dept required");
+}
+}
+else{
+alert("name required");
+}
+}
+
+</script>
+</head>
+<body>
+<form>
+<table align="center">
+	<tr><td><h2>Tour registration</h2></td></tr>
+	<tr>
+		<td>Name</td>
+	</tr>
+	<tr>
+		<td><input type="text" id="fname" name="fname" placeholder="first"></td>
+		<td ><input type="text" id="lname" name="lname" placeholder="last"></td>
+	</tr>
+	<tr>
+		<td>Department</td>
+		<td>Student ID</td>
+	</tr>
+	<tr>
+		<td style="visibility:hidden"><select name="dept name" id="deptname">
+			<option value="">select</option>
+			<option value="swe">SWE</option>
+			<option value="cse">CSE</option>
+			</select>
+		</td>
+		<td style="visibility:hidden"><input type="text" id="sid" name="studentid" placeholder="Enter your student id"></td>
+	</tr>
+	<tr>
+		<td>Credit Complete</td>
+	</tr>
+	<tr>
+		<td style="visibility:hidden"><input type="text" name="ccomplete" id="credit" placeholder="enter the total number of credit you complete"></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="submit" name="submit" onclick="validate()"></td>
+	</tr>
+</table>
+</form>
+</body>
+</html>
